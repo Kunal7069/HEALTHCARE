@@ -1,0 +1,132 @@
+[2023-12-02 23:58:20,909: INFO/SpawnPoolWorker-1] child process 38024 calling self.run()
+[2023-12-02 23:58:20,924: INFO/SpawnPoolWorker-2] child process 18508 calling self.run()
+[2023-12-02 23:58:20,948: WARNING/MainProcess] C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\celery\worker\consumer\consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-12-02 23:58:20,959: INFO/MainProcess] Connected to redis://localhost:6379/0
+[2023-12-02 23:58:20,960: WARNING/MainProcess] C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\celery\worker\consumer\consumer.py:507: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2023-12-02 23:58:20,965: INFO/SpawnPoolWorker-3] child process 34184 calling self.run()
+[2023-12-02 23:58:20,969: INFO/MainProcess] mingle: searching for neighbors
+[2023-12-02 23:58:21,007: INFO/SpawnPoolWorker-4] child process 33980 calling self.run()
+[2023-12-02 23:58:21,021: INFO/SpawnPoolWorker-5] child process 18492 calling self.run()
+[2023-12-02 23:58:21,175: INFO/SpawnPoolWorker-6] child process 20908 calling self.run()
+[2023-12-02 23:58:21,242: INFO/SpawnPoolWorker-8] child process 35112 calling self.run()
+[2023-12-02 23:58:21,248: INFO/SpawnPoolWorker-7] child process 17912 calling self.run()
+[2023-12-02 23:58:21,320: INFO/SpawnPoolWorker-9] child process 6720 calling self.run()
+[2023-12-02 23:58:21,355: INFO/SpawnPoolWorker-10] child process 11840 calling self.run()
+[2023-12-02 23:58:21,414: INFO/SpawnPoolWorker-11] child process 32724 calling self.run()
+[2023-12-02 23:58:21,487: INFO/SpawnPoolWorker-12] child process 40852 calling self.run()
+[2023-12-02 23:58:21,506: INFO/SpawnPoolWorker-13] child process 18484 calling self.run()
+[2023-12-02 23:58:21,565: INFO/SpawnPoolWorker-14] child process 35996 calling self.run()
+[2023-12-02 23:58:21,607: INFO/SpawnPoolWorker-15] child process 36924 calling self.run()
+[2023-12-02 23:58:21,676: INFO/SpawnPoolWorker-16] child process 35160 calling self.run()
+[2023-12-02 23:58:21,982: INFO/MainProcess] mingle: all alone
+[2023-12-02 23:58:21,996: INFO/MainProcess] celery@jaink ready.
+[2023-12-02 23:58:22,301: INFO/SpawnPoolWorker-17] child process 19800 calling self.run()
+[2023-12-02 23:58:22,333: INFO/SpawnPoolWorker-18] child process 26328 calling self.run()
+[2023-12-02 23:58:22,435: INFO/SpawnPoolWorker-19] child process 27692 calling self.run()
+[2023-12-02 23:58:22,490: INFO/SpawnPoolWorker-20] child process 24040 calling self.run()
+[2023-12-02 23:58:22,521: INFO/SpawnPoolWorker-21] child process 34004 calling self.run()
+[2023-12-02 23:58:22,598: INFO/SpawnPoolWorker-22] child process 36852 calling self.run()
+[2023-12-02 23:58:23,305: INFO/SpawnPoolWorker-23] child process 15488 calling self.run()
+[2023-12-02 23:58:23,321: INFO/SpawnPoolWorker-24] child process 24724 calling self.run()
+[2023-12-02 23:58:23,538: INFO/SpawnPoolWorker-25] child process 24404 calling self.run()
+[2023-12-02 23:58:23,586: INFO/SpawnPoolWorker-26] child process 19588 calling self.run()
+[2023-12-02 23:58:24,539: INFO/SpawnPoolWorker-27] child process 29256 calling self.run()
+[2023-12-03 05:25:58,179: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\redis\connection.py", line 500, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\redis\_parsers\resp2.py", line 15, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\redis\_parsers\resp2.py", line 25, in _read_response
+    raw = self._buffer.readline()
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\redis\_parsers\socket.py", line 115, in readline
+    self._read_from_socket()
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\redis\_parsers\socket.py", line 65, in _read_from_socket
+    data = self._sock.recv(socket_read_size)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\celery\worker\consumer\consumer.py", line 340, in start
+    blueprint.start(self)
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\celery\bootsteps.py", line 116, in start
+    step.start(parent)
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\celery\worker\consumer\consumer.py", line 742, in start
+    c.loop(*c.loop_args())
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\celery\worker\loops.py", line 130, in synloop
+    connection.drain_events(timeout=2.0)
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\kombu\connection.py", line 341, in drain_events
+    return self.transport.drain_events(self.connection, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\kombu\transport\virtual\base.py", line 997, in drain_events
+    get(self._deliver, timeout=timeout)
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\kombu\transport\redis.py", line 590, in get
+    ret = self.handle_event(fileno, event)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\kombu\transport\redis.py", line 572, in handle_event
+    return self.on_readable(fileno), self
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\kombu\transport\redis.py", line 568, in on_readable
+    chan.handlers[type]()
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\kombu\transport\redis.py", line 961, in _brpop_read
+    dest__item = self.client.parse_response(self.client.connection,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\redis\client.py", line 553, in parse_response
+    response = connection.read_response()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\redis\connection.py", line 508, in read_response
+    raise ConnectionError(
+redis.exceptions.ConnectionError: Error while reading from localhost:6379 : (10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None)
+[2023-12-03 05:26:01,808: ERROR/MainProcess] Process 'SpawnPoolWorker-27' pid:32068 exited with 'exitcode 3221225786'
+[2023-12-03 05:26:01,809: ERROR/MainProcess] Process 'SpawnPoolWorker-26' pid:35180 exited with 'exitcode 3221225786'
+[2023-12-03 05:26:01,809: ERROR/MainProcess] Process 'SpawnPoolWorker-25' pid:16956 exited with 'exitcode 3221225786'
+[2023-12-03 05:26:02,254: WARNING/MainProcess] C:\Users\jaink\Desktop\WEBSITE2\mysite\venv\Lib\site-packages\celery\worker\consumer\consumer.py:391: CPendingDeprecationWarning: 
+In Celery 5.1 we introduced an optional breaking change which
+on connection loss cancels all currently executed tasks with late acknowledgement enabled.
+These tasks cannot be acknowledged as the connection is gone, and the tasks are automatically redelivered
+back to the queue. You can enable this behavior using the worker_cancel_long_running_tasks_on_connection_loss
+setting. In Celery 5.1 it is set to False by default. The setting will be set to True by default in Celery 6.0.
+
+  warnings.warn(CANCEL_TASKS_BY_DEFAULT, CPendingDeprecationWarning)
+
+[2023-12-03 05:26:07,506: ERROR/MainProcess] Process 'SpawnPoolWorker-23' pid:39056 exited with 'exitcode 3221225786'
+[2023-12-03 05:26:12,343: ERROR/MainProcess] Process 'SpawnPoolWorker-21' pid:35744 exited with 'exitcode 3221225786'
+[2023-12-03 05:26:17,231: ERROR/MainProcess] Process 'SpawnPoolWorker-32' pid:16680 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:17,231: ERROR/MainProcess] Process 'SpawnPoolWorker-31' pid:34400 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:17,231: ERROR/MainProcess] Process 'SpawnPoolWorker-30' pid:30648 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:17,232: ERROR/MainProcess] Process 'SpawnPoolWorker-29' pid:38096 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:17,232: ERROR/MainProcess] Process 'SpawnPoolWorker-28' pid:15244 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:17,232: ERROR/MainProcess] Process 'SpawnPoolWorker-20' pid:40596 exited with 'exitcode 3221225786'
+[2023-12-03 05:26:18,162: ERROR/MainProcess] Process 'SpawnPoolWorker-38' pid:6996 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:18,162: ERROR/MainProcess] Process 'SpawnPoolWorker-37' pid:10824 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:18,163: ERROR/MainProcess] Process 'SpawnPoolWorker-36' pid:29316 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:18,163: ERROR/MainProcess] Process 'SpawnPoolWorker-35' pid:29216 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:18,163: ERROR/MainProcess] Process 'SpawnPoolWorker-34' pid:9568 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:18,163: ERROR/MainProcess] Process 'SpawnPoolWorker-33' pid:5680 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:19,118: ERROR/MainProcess] Process 'SpawnPoolWorker-44' pid:13356 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:19,119: ERROR/MainProcess] Process 'SpawnPoolWorker-43' pid:10744 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:19,119: ERROR/MainProcess] Process 'SpawnPoolWorker-42' pid:29740 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:19,119: ERROR/MainProcess] Process 'SpawnPoolWorker-41' pid:6552 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:19,120: ERROR/MainProcess] Process 'SpawnPoolWorker-40' pid:33544 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:19,120: ERROR/MainProcess] Process 'SpawnPoolWorker-39' pid:28620 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:20,174: ERROR/MainProcess] Process 'SpawnPoolWorker-50' pid:29688 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:20,174: ERROR/MainProcess] Process 'SpawnPoolWorker-49' pid:21216 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:20,174: ERROR/MainProcess] Process 'SpawnPoolWorker-48' pid:23620 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:20,175: ERROR/MainProcess] Process 'SpawnPoolWorker-47' pid:38980 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:20,175: ERROR/MainProcess] Process 'SpawnPoolWorker-46' pid:19020 exited with 'exitcode 3221225794'
+[2023-12-03 05:26:20,175: ERROR/MainProcess] Process 'SpawnPoolWorker-45' pid:13536 exited with 'exitcode 3221225794'

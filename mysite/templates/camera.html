@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Camera Display</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        #container {
+            display: flex;
+        }
+
+        #sidebar {
+            width: 250px;
+            background-color: #384378;
+            color: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        #content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .camera {
+            width: calc(33.33% - 20px); 
+            height: 200px; 
+            margin-right: 20px;
+            margin-bottom: 20px;
+            background-color: #ddd; 
+            border: 1px solid #888;
+            overflow: hidden;
+            float: left;
+            border-radius: 10px;
+        }
+
+        .camera:nth-child(3n) {
+            margin-right: 0;
+        }
+        #sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 10px;
+        }
+
+        #sidebar a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px;
+            display: block;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #sidebar a:hover {
+            background-color: #555;
+        }
+
+        /* Drop animation for the active link */
+        #sidebar .active {
+            position: relative;
+            background-color: #007bff;
+            animation: drop 0.5s ease-in-out;
+        }
+
+        @keyframes drop {
+            0% {
+                top: -10px;
+            }
+            100% {
+                top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="sidebar">
+            <h2><u>Menubar</u></h2>
+            <ul>
+                <li><a href="current.html">Main</a></li>
+                <li><a href="/camera" class="active">Livefeed</a></li>
+                <li><a href="/">History</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+            <div class="camera" id="camera1">
+                SMS 1
+                <img id="videoFrame" src="" width="calc(33.33% - 20px); " height="200"/>
+    
+            </div>
+            <div class="camera" id="camera2">
+                <img src="{% url 'video_feed' %}" alt="Video Stream" width="calc(33.33% - 20px);" height="200">
+            </div>
+            {% comment %} <div class="camera" id="camera3">
+                SMS 3
+            </div>
+            <div class="camera" id="camera4">
+                SMS 4 
+            </div>
+            <div class="camera" id="camera5">
+                SMS 5 
+            </div>
+            <div class="camera" id="camera3">
+                SMS 6 
+            </div>
+            <div class="camera" id="camera3">
+                SMS 7 
+            </div>
+            <div class="camera" id="camera3">
+                SMS 8
+            </div>
+            <div class="camera" id="camera3">
+                SMS 9 
+            </div> {% endcomment %}
+        </div>
+    </div>
+
+</body>
+</html>

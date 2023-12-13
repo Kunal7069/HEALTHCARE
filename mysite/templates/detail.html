@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Stream</title>
+    <style>
+        /* Optional: Add some basic styling for better presentation */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        {% comment %} body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        } {% endcomment %}
+    
+        canvas {
+            background-image: linear-gradient(to right, #00369E, #005CFD, #A18DFF);
+            border-radius: 15px;
+        }
+          
+    </style>
+</head>
+<body>
+    <div>
+    <h1>DETAIL</h1>
+    <form method="post" id="dateForm" >
+        {% csrf_token %} 
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        {% comment %} <input type="submit" value="Submit"> {% endcomment %}
+    </form>
+    <br/><br/>
+    <table>
+        <thead>
+            <tr>
+                <th>LADLE NAME</th>
+                <td>{{ladlename}}</td>
+            </tr>
+            <tr>
+                <th>DATE</th>
+                <td>{{date}}</td>
+            </tr>
+            <tr>
+                <th>NUMBER OF ROUNDS</th>
+                <td>{{no_of_rounds}}</td>
+            </tr>
+            {% comment %} <tr>
+                <th>Start Time</th>
+                <td>{{start_time}}</td>
+            </tr>
+            <tr>
+                <th>Stop Time</th>
+                <td>{{stop_time}}</td>
+            </tr>
+            <tr>
+                <th>Turn Over Time</th>
+                <td>{{turnover_time}}</td>
+            </tr> {% endcomment %}
+            <tr>
+                <th>AVERAGE TURN AROUND TIME</th>
+                <td>{{average_turnaround_time}}</td>
+            </tr>
+        </thead>
+    </table>
+    <br/><br/>
+    <table>
+        <thead>
+            <tr>
+                <th>ROOM NO</th>
+                <th>ENTRY TIME</th>
+                <th>EXIT TIME</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for x in list1 %}
+            <tr>
+                <td>{{x.0}} </td>
+                <td>{{x.1}}</td>
+                <td>{{x.2}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    <br/><br/>
+    <table>
+        <thead>
+            <tr>
+                <th>TIME</th>
+                <th>WORK</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for x in list2 %}
+            <tr>
+                <td>{{x.0}} </td>
+                <td>{{x.1}}</td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+<br/><br/><br/>
+    <div>
+        <canvas id="chart" style="height: 300px;"></canvas>
+      </div>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.getElementById('date').addEventListener('change', function() {
+            document.getElementById('dateForm').submit();
+        });
+        var labels = {{ labels|safe }};
+        var data2 = {{ data|safe }};
+        document.addEventListener("DOMContentLoaded", function () {
+            const data = {
+              labels: labels,
+              datasets: [
+                {
+                  label: "Turn Over Time in Secs",
+                  data: data2,
+                  backgroundColor: "white",
+                  barThickness: 30,
+                  borderRadius: {
+                  topLeft: 10,     // Set the top left corner to be curved
+                  topRight: 10,     // Set the top right corner to be flat
+                  bottomLeft: 100,   // Set the bottom left corner to be flat
+                  bottomRight: 100, // Set the bottom right corner to be curved
+                },
+                },
+              ],
+            };
+      
+            const ctx = document.getElementById("chart").getContext("2d");
+            const chart = new Chart(ctx, {
+              type: "bar",
+              data: data,
+              options: {
+                layout: {
+                  padding: {
+                    top: 30,
+                    right: 15,
+                    left: 10,
+                    bottom: 5,
+                  },
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                  legend: {
+                    display: false,
+                  },
+                },
+                tooltips: {
+                  enabled: true,
+                  mode: "index",
+                  intersect: false,
+                },
+                scales: {
+                  y: {
+                    grid: {
+                      display: true,
+                      color: "rgba(255, 255, 255, .2)",
+                      zeroLineColor: "#ffffff",
+                      borderDash: [6,3],
+                      borderDashOffset: [6],
+                    },
+                    ticks: {
+                      suggestedMin: 0,
+                      suggestedMax: 1000,
+                      display: true,
+                      color: "#fff",
+                      font: {
+                        size: 14,
+                        lineHeight: 1.5,
+                        weight: "600",
+                        family: "Open Sans",
+                      },
+                    },
+                  },
+                  x: {
+                    grid: {
+                      display: false,
+                    },
+                    ticks: {
+                      display: true,
+                      color: "#fff",
+                      font: {
+                        size: 14,
+                        lineHeight: 1.5,
+                        weight: "600",
+                        family: "Open Sans",
+                      },
+                    },
+                    
+                  },
+                },
+                
+                },
+            });
+          });
+    </script>
+    
+    
+</body>
+</html>

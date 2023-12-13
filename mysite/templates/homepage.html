@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Stream</title>
+</head>
+<body>
+    <div>
+    {%for x in ladleinfo %}
+    <b>LADLE NAME - {{x.name}}  </br>PATH-{{x.stop_point_work}}</b><br/><a href="/detail/?ladlename={{x.name}}">VIEW DATA</a><br/><br/><br/><br/>
+   {%endfor%}
+
+</body>
+</html>

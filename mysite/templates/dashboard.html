@@ -1,0 +1,42 @@
+
+
+<!-- myapp/templates/myapp/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Stream</title>
+</head>
+<body>
+    <div>
+    <h1>HII</h1>
+
+    {% comment %} START TIME-{{start_time}}<br/>
+{{stoppoint_time}}<br/>
+STOP TIME-{{stop_time}}<br/>
+NO OF TURN OVER-{{no_of_turnover}}<br/>
+Average Turn Around Time - {{average_turnaround_time}}<br/>
+TURN OVER TIME-
+    {%for x in turnover_time %}
+    {{x}}
+    {%endfor%}<br/>
+{{data}}</br> {% endcomment %}
+{%for x in ladleupdateroomwise1 %}
+ {{x.room}} {{x.entry_time}} {{x.exit_time}}
+{%endfor%}
+    </div>
+    {% comment %} <img id="videoFrame" src=""/>
+    
+<img src="{% url 'video_feed' %}" alt="Video Stream" width="640" height="480"> {% endcomment %}
+<script>
+    const videoSocket = new WebSocket(
+        'ws://192.168.29.66:8765/ws/video_stream/'
+    );
+    videoSocket.onmessage = function(e) {
+     document.getElementById('videoFrame').src = 'data:image/jpeg;base64,' + e.data;
+    };
+</script>
+</body>
+</html>
